@@ -9,6 +9,8 @@ git config --global user.name "Your Name"
 git fetch --all
 git checkout --track origin/gh-pages
 
+cd hacker-master
+
 jekyll build
 
 git add -A
