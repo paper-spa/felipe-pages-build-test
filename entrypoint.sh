@@ -9,14 +9,13 @@ git config --global user.name "Your Name"
 git fetch --all
 git checkout --track origin/gh-pages
 
-echo "Updating gh-pages branch"
-ls 
-
 cd hacker-master
 
 jekyll build
 
 git add -A
+
+git checkout --track origin/gh-pages
 
 git commit -m "Automatic update"
 git push origin gh-pages --force
