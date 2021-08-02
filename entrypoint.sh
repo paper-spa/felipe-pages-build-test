@@ -7,15 +7,14 @@ git config --global user.email "felipesu19@github.com"
 git config --global user.name "Your Name"
 
 git fetch --all
-git checkout --track origin/gh-pages
-
+ls -la
 cd hacker-master
 
 jekyll build
 
 git add -A
 
-git checkout --track origin/gh-pages
+git checkout origin/gh-pages
 
 git commit -m "Automatic update"
 git push origin gh-pages --force
