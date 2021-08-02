@@ -11,7 +11,7 @@ git fetch --all
 
 git checkout -b gh-pages
 git pull origin gh-pages
-git merge main --allow-unrelated-histories
+git merge main --allow-unrelated-histories -X theirs
 
 cd hacker-master
 bundle install
