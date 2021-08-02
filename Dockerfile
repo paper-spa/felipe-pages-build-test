@@ -2,15 +2,7 @@
 FROM ruby:3.0.2 AS pages
 
 # Install dependencies
-RUN apk add --update make
-RUN apk add --update gcc g++
-RUN apk add --update libc-dev
-RUN apk add --update musl-dev
-RUN apk add --update build-base
-# RUN apk add gmp-dev zlib-dev gdbm-dev db-dev readline-dev libffi-dev coreutils yaml-dev linux-headers autoconf
-
-ENV CPLUS_INCLUDE_PATH=/usr/local/include/c++/8.2.0:/usr/local/include:/usr/include:$CPLUS_INCLUDE_PATH
-
+RUN sudo apt-get install build-essential
 
 # Install Ruby/Gems
 ENV GEM_HOME="/usr/local/bundle"
