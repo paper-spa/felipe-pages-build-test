@@ -3,6 +3,7 @@ FROM ruby:alpine3.14 AS pages
 
 # Install dependencies
 RUN apk add --update make
+RUN apk add --update gcc
 
 # Install Ruby/Gems
 ENV GEM_HOME="/usr/local/bundle"
