@@ -2,7 +2,8 @@
 FROM ruby:3.0.2 AS pages
 
 # Install dependencies
-RUN apt-get install build-essential
+RUN apt-get update 
+RUN apt-get install build-essential -y
 
 # Install Ruby/Gems
 ENV GEM_HOME="/usr/local/bundle"
