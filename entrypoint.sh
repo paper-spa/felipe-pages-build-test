@@ -10,7 +10,7 @@ git fetch --all
 
 
 git checkout -b gh-pages origin/gh-pages
-git pull gh-pages
+git pull origin gh-pages
 git merge main 
 
 cd hacker-master
