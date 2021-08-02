@@ -1,0 +1,6 @@
+# action.yml
+name: 'Build a page'
+description: 'Can we build a page using this image?'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
