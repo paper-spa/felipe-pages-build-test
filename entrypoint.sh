@@ -9,7 +9,7 @@ cd $GITHUB_REPOSITORY
 
 jekyll build
 
-git add ...
+git add -A
 
 git commit -m "Automatic update"
 git push origin "test"
