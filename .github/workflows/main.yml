@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  build_pages:
+    runs-on: ubuntu-latest
+    name: A job to build pages
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: test
+        uses: ./ # Uses an action in the root directory
