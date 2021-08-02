@@ -7,10 +7,10 @@ git config --global user.email "felipesu19@github.com"
 git config --global user.name "Your Name"
 
 git fetch --all
-ls -la
 
 
-git checkout origin/gh-pages
+git checkout -b gh-pages origin/gh-pages
+git pull gh-pages
 git merge main 
 
 cd hacker-master
