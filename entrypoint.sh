@@ -10,7 +10,7 @@ cd $GITHUB_REPOSITORY
 jekyll build
 
 git fetch --all
-git checkout gh-pages
+git checkout --track origin/gh-pages
 git add -A
 
 git commit -m "Automatic update"
