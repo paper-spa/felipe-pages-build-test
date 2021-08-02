@@ -5,6 +5,9 @@ FROM ruby:alpine3.14 AS pages
 RUN apk add --update make
 RUN apk add --update gcc
 
+ENV CPLUS_INCLUDE_PATH=/usr/local/include/c++/8.2.0:/usr/local/include:/usr/include:$CPLUS_INCLUDE_PATH
+
+
 # Install Ruby/Gems
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
