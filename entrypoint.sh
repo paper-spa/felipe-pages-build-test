@@ -18,6 +18,8 @@ bundle install
 
 jekyll build
 
+cp -r _site/* ../docs/
+
 git add -A
 
 git commit -m "Automatic update"
