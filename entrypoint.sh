@@ -9,6 +9,9 @@ git config --global user.name "Your Name"
 git fetch --all
 git checkout --track origin/gh-pages
 
+echo "Updating gh-pages branch"
+ls 
+
 cd hacker-master
 
 jekyll build
