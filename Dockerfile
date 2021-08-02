@@ -5,7 +5,7 @@ FROM ruby:alpine3.14 AS pages
 RUN apk add --update make
 RUN apk add --update gcc
 RUN apk add --update musl-dev
-RUN apk add gmp-dev zlib-dev libressl-dev gdbm-dev db-dev readline-dev libffi-dev coreutils yaml-dev linux-headers autoconf
+RUN apk add gmp-dev zlib-dev gdbm-dev db-dev readline-dev libffi-dev coreutils yaml-dev linux-headers autoconf
 
 ENV CPLUS_INCLUDE_PATH=/usr/local/include/c++/8.2.0:/usr/local/include:/usr/include:$CPLUS_INCLUDE_PATH
 
