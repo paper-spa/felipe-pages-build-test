@@ -9,7 +9,8 @@ cd $GITHUB_REPOSITORY
 
 jekyll build
 
+git checkout gh-pages
 git add -A
 
 git commit -m "Automatic update"
-git push origin "test"
+git push origin gh-pages --force
