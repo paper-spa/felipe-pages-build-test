@@ -8,14 +8,17 @@ git config --global user.name "Your Name"
 
 git fetch --all
 ls -la
+
+
+git checkout origin/gh-pages
+git merge main 
+
 cd hacker-master
 bundle install
 
 jekyll build
 
 git add -A
-
-git checkout origin/gh-pages
 
 git commit -m "Automatic update"
 git push origin gh-pages --force
