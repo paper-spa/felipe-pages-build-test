@@ -17,7 +17,8 @@ cd hacker-master
 bundle install
 
 jekyll build
-
+cd .. 
+ls -l
 cp -r _site/* ../docs/
 
 git add -A
