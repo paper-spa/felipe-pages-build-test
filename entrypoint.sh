@@ -1,3 +1,2 @@
 #!/bin/bash
-
-sudo jekyll build
+jekyll build
