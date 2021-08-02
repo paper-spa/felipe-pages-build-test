@@ -9,6 +9,7 @@ cd $GITHUB_REPOSITORY
 
 jekyll build
 
+git fetch --all
 git checkout gh-pages
 git add -A
 
