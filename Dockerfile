@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ruby:alpine3.14 AS pages
+FROM ruby:3.0.2 AS pages
 
 # Install dependencies
 RUN apk add --update make
