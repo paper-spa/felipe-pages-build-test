@@ -6,10 +6,11 @@ git pull github ${GITHUB_REF} --ff-only
 git config --global user.email "felipesu19@github.com"
 git config --global user.name "Your Name"
 
-jekyll build
-
 git fetch --all
 git checkout --track origin/gh-pages
+
+jekyll build
+
 git add -A
 
 git commit -m "Automatic update"
