@@ -5,7 +5,6 @@ FROM ruby:alpine3.14 AS pages
 RUN apk add --update make
 RUN apk add --update gcc
 RUN apk add --update musl-dev
-RUN apk add --update musl-tools
 RUN apk add --update g++
 # RUN apk add gmp-dev zlib-dev gdbm-dev db-dev readline-dev libffi-dev coreutils yaml-dev linux-headers autoconf
 
