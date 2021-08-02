@@ -1,9 +1,10 @@
 # Container image that runs your code
-FROM ruby:alpine3.14
+FROM ruby:alpine3.14 AS pages
 
 
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
+COPY Gemfile /Gemfile
 
 RUN gem install bundler &\
     bundle install
