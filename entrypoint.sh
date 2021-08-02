@@ -9,6 +9,7 @@ git config --global user.name "Your Name"
 git fetch --all
 ls -la
 cd hacker-master
+bundle install
 
 jekyll build
 
