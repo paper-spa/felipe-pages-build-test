@@ -5,7 +5,7 @@ FROM ruby:alpine3.14 AS pages
 ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 COPY Gemfile /Gemfile
-
+RUN gem install nokogiri -- --use-system-libraries --with-xml2-include=/usr/include/libxml2 --with-xml2-lib=/usr/lib/
 RUN gem install bundler &\
     bundle install
 
