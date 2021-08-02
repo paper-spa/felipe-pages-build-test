@@ -8,16 +8,10 @@ git config --global user.name "Your Name"
 
 git fetch --all
 
-
-git checkout -b gh-pages origin/gh-pages
-git pull origin gh-pages
-git merge main 
-
 cd hacker-master
 bundle install
 
 jekyll build
-cd .. 
 ls -l
 cp -r _site/* ../docs/
 
