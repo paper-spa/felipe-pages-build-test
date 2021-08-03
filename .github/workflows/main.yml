@@ -14,3 +14,14 @@ jobs:
         uses: actions/checkout@v2
       - name: test
         uses: ./ # Uses an action in the root directory
+  artifact_build:
+    runs-on: ubuntu-latest
+    name: A job to do artifact builds
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: test-artifact
+        uses: ./ # Uses an action in the root directory
+
