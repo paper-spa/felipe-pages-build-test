@@ -8,7 +8,7 @@ bundle install
 cd $1
 jekyll build 
 
-NAME=basename ${GITHUB_REPOSITORY}
+NAME=${basename $GITHUB_REPOSITORY}
 echo ${NAME}_${GITHUB_SHA}
 tar -czvf ${NAME}_${GITHUB_SHA}.tar _site
 
