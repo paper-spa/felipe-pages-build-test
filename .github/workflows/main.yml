@@ -21,7 +21,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist-without-markdown
-          path: ./${{steps.build_and_push_artifacts.outputs.artifact_name}}"
+          path: ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
 
       
 
