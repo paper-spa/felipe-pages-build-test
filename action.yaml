@@ -7,7 +7,7 @@ inputs:
     required: true
     default: './'
 outputs:
-  artifact_sha:
+  artifact_name:
     description: 'The result of the build'
 runs:
   using: 'docker'
