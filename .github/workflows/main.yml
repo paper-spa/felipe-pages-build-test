@@ -7,7 +7,7 @@ jobs:
 
   build_pages:
     container: 
-      image: docker
+      image: ubuntu:16.04
       volumes: 
         - .:data
     runs-on: ubuntu-latest
