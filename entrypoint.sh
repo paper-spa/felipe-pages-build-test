@@ -9,7 +9,7 @@ cd $1
 jekyll build 
 
 REPO_NAME=$(basename $GITHUB_REPOSITORY)
-tar -czvf ${REPO_NAME}_${GITHUB_SHA}.tar _site
+tar -czf ${REPO_NAME}_${GITHUB_SHA}.tar _site
 
 echo "::set-output name=artifact_name::${REPO_NAME}_${GITHUB_SHA}.tar"
 

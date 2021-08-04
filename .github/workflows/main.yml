@@ -17,6 +17,8 @@ jobs:
         id: build_and_push_artifacts
       - name: echo_out_results
         run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
+      - name: copy_artifacts
+        run: docker cp build_and_push_artifacts:/artifacts/${{steps.build_and_push_artifacts.outputs.artifact_name}} .
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
