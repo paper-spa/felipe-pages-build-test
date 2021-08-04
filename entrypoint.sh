@@ -8,10 +8,9 @@ bundle install
 cd $1
 jekyll build 
 
-NAME=${basename $GITHUB_REPOSITORY}
-echo ${NAME}_${GITHUB_SHA}
-tar -czvf ${NAME}_${GITHUB_SHA}.tar _site
+REPO_NAME=$(basename $GITHUB_REPOSITORY)
+tar -czvf ${REPO_NAME}_${GITHUB_SHA}.tar _site
 
-ls -la 
+ls -a
 
 echo "::set-output name=artifact_sha::$GITHUB_SHA"
