@@ -9,7 +9,7 @@ jobs:
     container: 
       image: docker
       volumes: 
-        - test:/test
+        - .:data
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
