@@ -4,11 +4,11 @@ on:
         - main
 
 jobs:
+  volumes:
+    - /test:/test
   build_pages:
     runs-on: ubuntu-latest
     name: A job to build pages
-    volumes:
-      - /test:/test
     steps:
       # To use this repository's private action,
       # you must check out the repository
