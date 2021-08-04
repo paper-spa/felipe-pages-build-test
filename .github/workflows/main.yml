@@ -15,6 +15,7 @@ jobs:
       - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
+        volumes: ./
       - name: echo_out_results
         run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       - name: copy_artifacts
