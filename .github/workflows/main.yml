@@ -4,9 +4,11 @@ on:
         - main
 
 jobs:
-  volumes:
-    - /test:/test
+
   build_pages:
+    container: 
+        volumes:
+          - /test:/test
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
