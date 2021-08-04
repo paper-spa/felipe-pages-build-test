@@ -7,9 +7,7 @@ jobs:
 
   build_pages:
     container: 
-        container_type: docker
-        volumes:
-          - /test:/test
+      container_type: docker
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
