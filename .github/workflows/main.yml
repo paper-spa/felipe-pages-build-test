@@ -4,12 +4,11 @@ on:
         - main
 
 jobs:
-
   build_pages:
-    container: 
-      image: ubuntu:16.04
-      volumes: 
-        - data:/data
+    services: 
+      docker: 
+        volumes:
+          - my_docker_volume:/volume_mounts
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
