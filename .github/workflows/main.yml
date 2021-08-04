@@ -12,6 +12,8 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: test
+      - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
+      - name: echo_out_results
+        run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_sha }}"
 
