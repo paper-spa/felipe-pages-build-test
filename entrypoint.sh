@@ -13,3 +13,4 @@ tar -czvf ${REPO_NAME}_${GITHUB_SHA}.tar _site
 
 echo "::set-output name=artifact_name::${REPO_NAME}_${GITHUB_SHA}.tar"
 
+ls -a
