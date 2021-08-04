@@ -8,6 +8,8 @@ jobs:
   build_pages:
     container: 
       image: docker
+      volumes: 
+        - test:/test
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
