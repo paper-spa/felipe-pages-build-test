@@ -1,6 +1,16 @@
 # action.yml
-name: 'Build a page'
+name: 'Build a page and push an artifact!'
 description: 'Can we build a page using this image?'
+inputs:
+  path-to-pages:  # id of input
+    description: 'Where the pages to be built are located'
+    required: true
+    default: './'
+outputs:
+  artifact_sha:
+    description: 'The result of the build'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.path-to-pages }}
