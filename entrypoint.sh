@@ -13,6 +13,8 @@ ls
 REPO_NAME=$(basename $GITHUB_REPOSITORY)
 tar -czf ${REPO_NAME}_${GITHUB_SHA}.tar _site
 
+echo "does this line up $GITHUB_ACTION"
+
 echo "::set-output name=artifact_name::${REPO_NAME}_${GITHUB_SHA}.tar"
 
 ls -a
