@@ -21,7 +21,8 @@ jobs:
         run: |
               
               export i=$(docker image ls | awk '{if (NR==2) print $3}')
-              docker create $image i -name "test"
+              echo $image
+              docker create ${image} i -name "test"
               docker cp test:${{steps.build_and_push_artifacts.outputs.artifact_name}} .
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
