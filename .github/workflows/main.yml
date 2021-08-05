@@ -22,6 +22,7 @@ jobs:
               
               export i=$(docker image ls | awk '{if (NR==2) print $3}')
               echo $i
+              ls
               export t=$(docker create $i -t "test")
               docker cp $t:. .
       - name: Archive production artifacts
