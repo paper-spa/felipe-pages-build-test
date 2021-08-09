@@ -26,6 +26,6 @@ jobs:
         with:
           name: test-artifact
           path: ${{steps.build_and_push_artifacts.outputs.artifact_name}}
-
+          if-no-files-found: error
       
 
