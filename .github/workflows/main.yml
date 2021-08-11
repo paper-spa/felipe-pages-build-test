@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
+      - name: Log into registry
+        run: echo "${{ secrets.CONTAINER_BUILDER_TOKEN }}" | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
       - name: build_and_push_artifacts
