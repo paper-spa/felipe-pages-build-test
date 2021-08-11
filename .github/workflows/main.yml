@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
+    - name: test
+        run: printenv
       - name: Log into registry
         shell: bash
         env:
@@ -18,8 +20,6 @@ jobs:
       - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
-        env: 
-          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
       - name: echo_out_results
         run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       - name: copy_artifacts
