@@ -19,7 +19,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
         env: 
-          GITHUB_REPOSITORY: ${{GITHUB_REPOSITORY}}
+          GITHUB_REPOSITORY: ${{env.GITHUB_REPOSITORY}}
       - name: echo_out_results
         run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       - name: copy_artifacts
