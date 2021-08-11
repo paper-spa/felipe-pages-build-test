@@ -3,4 +3,6 @@ FROM containers.pkg.github.com/github/pages/pages-actions AS pages
 
 RUN echo "test"
 RUN echo "$(ls)"
-RUN ./entrypoint.sh
+RUN ./install.sh
+RUN ./build.sh
+RUN ./archive.sh
