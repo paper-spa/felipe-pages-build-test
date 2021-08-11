@@ -1,4 +1,4 @@
 # Container image that runs your code
 FROM containers.pkg.github.com/github/pages/pages-actions AS pages
 
-RUN entrypoint.sh
+RUN ls -a
