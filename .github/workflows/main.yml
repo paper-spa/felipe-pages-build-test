@@ -12,7 +12,7 @@ jobs:
         shell: bash
         env:
             SUPER_SECRET: ${{ secrets.CONTAINER_BUILDER_TOKEN }}
-        run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
+        run: docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
       - name: build_and_push_artifacts
