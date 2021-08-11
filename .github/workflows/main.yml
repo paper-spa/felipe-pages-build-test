@@ -9,6 +9,7 @@ jobs:
     name: A job to build pages
     steps:
       - name: Log into registry
+        shell: bash
         env:
             SUPER_SECRET: ${{ secrets.CONTAINER_BUILDER_TOKEN }}
         run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
