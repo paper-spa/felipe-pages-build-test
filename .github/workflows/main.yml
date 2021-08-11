@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
-    - name: test
+      - name: test
         run: printenv
       - name: Log into registry
         shell: bash
