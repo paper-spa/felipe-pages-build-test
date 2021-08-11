@@ -9,7 +9,9 @@ jobs:
     name: A job to build pages
     steps:
       - name: Log into registry
-        run: echo "${{ secrets.CONTAINER_BUILDER_TOKEN }}" | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
+        env:
+            SUPER_SECRET: ${{ secrets.CONTAINER_BUILDER_TOKEN }}
+        run: echo "$SUPER_SECRET" | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
       - name: build_and_push_artifacts
