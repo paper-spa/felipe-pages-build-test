@@ -17,9 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: setup environment
-        run: |
-              printenv >> env
-              ls -al
+        run:  printenv >> env
       - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
