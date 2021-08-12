@@ -3,6 +3,7 @@ FROM containers.pkg.github.com/github/pages/pages-actions AS pages
 
 ADD . /
 
+RUN source .env
 RUN printenv
 
 
