@@ -5,6 +5,7 @@ ADD . /
 
 RUN printenv
 
+
 RUN ./install.sh
 RUN ./build.sh
 RUN ./archive.sh
