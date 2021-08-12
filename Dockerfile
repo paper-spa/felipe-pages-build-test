@@ -6,7 +6,9 @@ ADD . /
 ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
 ENV GITHUB_SHA $GITHUB_SHA
 
-RUN GITHUB_REPOSITORY $GITHUB_REPOSITORY ./install.sh &\
-    GITHUB_REPOSITORY $GITHUB_REPOSITORY ./build.sh &\
-    ./archive.sh
+RUN . printenv
+
+RUN ./install.sh 
+RUN export GITHUB_REPOSITORY=test/testy; export GITHUB_SHA=red; ./build.sh 
+RUN ./archive.sh
 
