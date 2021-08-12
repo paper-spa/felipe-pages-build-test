@@ -9,7 +9,9 @@ jobs:
     name: A job to build pages
     steps:
       - name: test
-        run: printenv >> .env
+        run: |
+              printenv >> env
+              ls -al
       - name: Log into registry
         shell: bash
         env:
