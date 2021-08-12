@@ -4,8 +4,9 @@ SHELL ["/bin/bash", "-c"]
 ADD . /
 
 RUN ls
-RUN . ./load_env_file.sh &\
-    printenv 
+
+ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
+ENV GITHUB_SHA $GITHUB_SHA
 
 RUN ./install.sh &\
     ./build.sh &\
