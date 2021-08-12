@@ -5,8 +5,8 @@ ADD . /
 # ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
 # ENV GITHUB_SHA $GITHUB_SHA
 
-RUN ./install.sh 
-RUN export GITHUB_REPOSITORY=test/testy; export GITHUB_SHA=red; ./build.sh 
-RUN ./archive.sh
+RUN sh -c ./install.sh 
+RUN sh -c ./build.sh 
+RUN sh -c ./archive.sh
 
 ENTRYPOINT ["sh", "-c", "printenv"]
