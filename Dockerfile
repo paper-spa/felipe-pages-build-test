@@ -1,6 +1,5 @@
 # Container image that runs your code
 FROM containers.pkg.github.com/github/pages/pages-actions AS pages
-SHELL ["sh", "-c"]
 ADD . /
 
 # ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
