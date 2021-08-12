@@ -8,10 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to build pages
     steps:
-      - name: test
-        run: |
-              printenv >> env
-              ls -al
+
       - name: Log into registry
         shell: bash
         env:
@@ -19,6 +16,10 @@ jobs:
         run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
+      - name: setup environment
+        run: |
+              printenv >> env
+              ls -al
       - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
