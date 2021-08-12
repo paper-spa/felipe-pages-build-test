@@ -4,9 +4,10 @@ SHELL ["/bin/bash", "-c"]
 ADD . /
 
 RUN ls
-RUN source ./load_env_file.sh &\
-    printenv &\
-    ./install.sh &\
+RUN . ./load_env_file.sh &\
+    printenv 
+
+RUN ./install.sh &\
     ./build.sh &\
     ./archive.sh
 
