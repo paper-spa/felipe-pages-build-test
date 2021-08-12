@@ -1,3 +1,3 @@
 while read e; do
-  source $e
+  export $e
 done <env
