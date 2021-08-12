@@ -4,10 +4,9 @@ FROM containers.pkg.github.com/github/pages/pages-actions AS pages
 ADD . /
 
 RUN ls
-RUN ./load_env_file.sh
-RUN printenv
+RUN ./load_env_file.sh &\
+    printenv &\
+    ./install.sh &\
+    ./build.sh &\
+    ./archive.sh
 
-
-RUN ./install.sh
-RUN ./build.sh
-RUN ./archive.sh
