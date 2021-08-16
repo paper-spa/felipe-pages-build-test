@@ -4,4 +4,4 @@ ADD . /
 # ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
 # ENV GITHUB_SHA $GITHUB_SHAå
 
-ENTRYPOINT ["/bin/sh", "-c" ,"/install.sh && /build.sh && /archive.sh']
+ENTRYPOINT ["/bin/sh", "-c" ,"/install.sh && /build.sh && /archive.sh"]
