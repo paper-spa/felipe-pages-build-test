@@ -6,7 +6,6 @@ ADD . /
 # ENV GITHUB_SHA $GITHUB_SHA
 
 RUN sh -c ./install.sh 
-RUN sh -c ./build.sh 
 RUN ls 
 
-ENTRYPOINT ["/build.sh && /archive.sh"]
+ENTRYPOINT ["/bin/sh", "-c" ,"/build.sh && /archive.sh"]
