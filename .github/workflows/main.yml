@@ -13,11 +13,13 @@ jobs:
         run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
+      - run: echo $GITHUB_WORKSPACE
       - name: build_and_push_artifacts
         uses: ./ # Uses an action in the root directory
         env:
           REPO_NAME: ${{ GITHUB.REPOSITORY }}
         id: build_and_push_artifacts
+      - run: echo $GITHUB_WORKSPACE
       - name: echo_out_results
         run: find /github/home/_site ; echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       # - name: copy_artifacts
