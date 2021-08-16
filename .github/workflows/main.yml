@@ -13,13 +13,13 @@ jobs:
         run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
       - name: Checkout
         uses: actions/checkout@v2
-      - name: build_and_push_artifacts
-        run: bundle install; jekyll build
       # - name: build_and_push_artifacts
-      #   uses: ./ # Uses an action in the root directory
-      #   env:
-      #     REPO_NAME: ${{ GITHUB.REPOSITORY }}
-      #   id: build_and_push_artifacts
+      #   run: bundle install; jekyll build
+      - name: build_and_push_artifacts
+        id: build_and_push_artifacts
+        uses: ./ # Uses an action in the root directory
+        env:
+          REPO_NAME: ${{ GITHUB.REPOSITORY }}
       # - name: echo_out_results
       #   run: find  ; echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       # - name: copy_artifacts
