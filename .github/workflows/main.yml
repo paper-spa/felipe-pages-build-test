@@ -17,14 +17,14 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: build_and_push_artifacts
       - name: echo_out_results
-        run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
+        run: find . ; echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       # - name: copy_artifacts
       #   run:  |
       #          ls
       #          echo $(readlink -f "${{steps.build_and_push_artifacts.outputs.artifact_name}}")
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-artifact
-          path: ${{steps.build_and_push_artifacts.outputs.artifact_name}}
-          if-no-files-found: error
+      # - name: Archive production artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: test-artifact
+      #     path: ${{steps.build_and_push_artifacts.outputs.artifact_name}}
+      #     if-no-files-found: error
