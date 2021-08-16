@@ -9,4 +9,4 @@ RUN sh -c ./install.sh
 RUN sh -c ./build.sh 
 RUN ls 
 
-ENTRYPOINT ["/archive.sh"]
+ENTRYPOINT ["/build.sh && /archive.sh"]
