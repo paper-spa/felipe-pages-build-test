@@ -8,4 +8,4 @@ ADD . /
 RUN sh -c ./install.sh 
 RUN ls 
 
-ENTRYPOINT ["/bin/sh", "-c" ,"/build.sh && /archive.sh"]
+ENTRYPOINT ["/bin/sh", "-c" ,"/build.sh && /archive.sh && ls"]
