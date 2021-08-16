@@ -19,7 +19,7 @@ jobs:
           REPO_NAME: ${{ GITHUB.REPOSITORY }}
         id: build_and_push_artifacts
       - name: echo_out_results
-        run: find . ; echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
+        run: find /github/home/_site ; echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
       # - name: copy_artifacts
       #   run:  |
       #          ls
