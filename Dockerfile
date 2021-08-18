@@ -5,4 +5,4 @@ ADD . /
 # ENV GITHUB_REPOSITORY $GITHUB_REPOSITORY
 # ENV GITHUB_SHA $GITHUB_SHAå
 
-ENTRYPOINT ["/bin/sh", "-c" ,"/install.sh && /build.sh && /report_state && /archive.sh"]
+ENTRYPOINT ["/bin/sh", "-c" ,"/install.sh && /build.sh && /report_state.sh && /archive.sh"]
