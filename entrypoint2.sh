@@ -1,5 +1,4 @@
 /install.sh
 echo $(ls)
-/build.sh
+jekyll build 
 echo $(ls)
-/archive.sh
