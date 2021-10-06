@@ -15,10 +15,16 @@ jobs:
       - name: archive build output
         run: tar --directory _site/ -c -v -f artifact.tar .
       - name: artifact-upload
-        uses: paper-spa/upload-artifact@main
+        uses: paper-spa/upload-artifact@output-url
         with:
           name: artifact
           path: ${{ github.workspace }}/artifact.tar
           token: ${{ secrets.TOKEN_FOR_API }}
+  check-deployment:
+    runs-on: ubuntu-latest
+    needs: checkout-and-deployment
+    steps:
+      - name: Check deployment status
+        run: "echo ${{need.checkout-and-deployment.outputs.status_url}}"
 
 
