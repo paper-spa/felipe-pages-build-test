@@ -25,6 +25,6 @@ jobs:
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: "echo ${{need.checkout-and-deployment.outputs.status_url}}"
+        run: "echo ${{needs.checkout-and-deployment.outputs.status_url}}"
 
 
