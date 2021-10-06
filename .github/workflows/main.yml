@@ -1,24 +1,24 @@
 name: pages build and deployment
 on: push
-  jobs:
-    checkout-and-deployment:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-          with:
-            ref: #{git_ref_name}
-        - name: Build page with Jekyll
-          uses: paper-spa/pages-jekyll@v4.0.0
-        - name: archive build output
-          run: tar --directory _site/ -c -v -f artifact.tar .
-        - name: artifact-upload
-          uses: paper-spa/upload-artifact@main
-          outputs:
-            status_url: ${{steps.artifact-upload.outputs.status_url}}
-          with:
-            name: artifact
-            path: ${{ github.workspace }}/artifact.tar
-            token: ${{ secrets.TOKEN_FOR_API }}
-      
+jobs:
+  checkout-and-deployment:
+    runs-on: ubuntu-latest
+     outputs:
+          status_url: ${{steps.artifact-upload.outputs.status_url}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Build page with Jekyll
+        uses: paper-spa/pages-jekyll@v4.0.0
+      - name: archive build output
+        run: tar --directory _site/ -c -v -f artifact.tar .
+      - name: artifact-upload
+        uses: paper-spa/upload-artifact@main
+        with:
+          name: artifact
+          path: ${{ github.workspace }}/artifact.tar
+          token: ${{ secrets.TOKEN_FOR_API }}
+
 
