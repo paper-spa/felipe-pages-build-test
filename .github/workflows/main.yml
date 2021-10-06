@@ -3,8 +3,8 @@ on: push
 jobs:
   checkout-and-deployment:
     runs-on: ubuntu-latest
-     outputs:
-          status_url: ${{steps.artifact-upload.outputs.status_url}}
+    outputs:
+      status_url: ${{steps.artifact-upload.outputs.status_url}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
