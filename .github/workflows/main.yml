@@ -1,6 +1,13 @@
 name: pages build and deployment
 on: push
 jobs:
+  check-status-action:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: test
+        uses: paper-spa/check-deployment-status@main
+        with:
+          status_url: "test-url"
   checkout-and-deployment:
     runs-on: ubuntu-latest
     outputs:
@@ -15,7 +22,7 @@ jobs:
       - name: archive build output
         run: tar --directory _site/ -c -v -f artifact.tar .
       - name: artifact-upload
-        uses: paper-spa/upload-artifact
+        uses: paper-spa/upload-artifact@main
         with:
           name: artifact
           path: ${{ github.workspace }}/artifact.tar
