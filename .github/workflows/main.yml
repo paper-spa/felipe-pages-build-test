@@ -1,5 +1,5 @@
 name: pages build and deployment
-on: dynamic
+on: push
   jobs:
     checkout-and-deployment:
       runs-on: ubuntu-latest
