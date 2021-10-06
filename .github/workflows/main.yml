@@ -15,7 +15,7 @@ jobs:
       - name: archive build output
         run: tar --directory _site/ -c -v -f artifact.tar .
       - name: artifact-upload
-        uses: paper-spa/upload-artifact@main
+        uses: paper-spa/upload-artifact
         with:
           name: artifact
           path: ${{ github.workspace }}/artifact.tar
