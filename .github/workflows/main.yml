@@ -1,37 +1,24 @@
-on:
-  push:
-    branches:
-        - main
-
-jobs:
-  build_pages:
-    runs-on: ubuntu-latest
-    name: A job to build pages
-    steps:
-
-      - name: Log into registry
-        shell: bash
-        env:
-            SUPER_SECRET: ${{ secrets.CONTAINER_BUILDER_TOKEN }}
-        run: echo $SUPER_SECRET | docker login containers.pkg.github.com -u ${{github.actor}} --password-stdin
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: setup environment
-        run:  printenv >> env
-      - name: build_and_push_artifacts
-        uses: ./ # Uses an action in the root directory
-        id: build_and_push_artifacts
-      - name: echo_out_results
-        run: echo "Build complete ${{steps.build_and_push_artifacts.outputs.artifact_name}}"
-      - name: copy_artifacts
-        run:  |
-               ls
-               echo $(readlink -f "${{steps.build_and_push_artifacts.outputs.artifact_name}}") 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-artifact
-          path: ${{steps.build_and_push_artifacts.outputs.artifact_name}}
-          if-no-files-found: error
+name: pages build and deployment
+on: dynamic
+  jobs:
+    checkout-and-deployment:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+          with:
+            ref: #{git_ref_name}
+        - name: Build page with Jekyll
+          uses: paper-spa/pages-jekyll@v4.0.0
+        - name: archive build output
+          run: tar --directory _site/ -c -v -f artifact.tar .
+        - name: artifact-upload
+          uses: paper-spa/upload-artifact@main
+          outputs:
+            status_url: ${{steps.artifact-upload.outputs.status_url}}
+          with:
+            name: artifact
+            path: ${{ github.workspace }}/artifact.tar
+            token: ${{ secrets.TOKEN_FOR_API }}
       
 
