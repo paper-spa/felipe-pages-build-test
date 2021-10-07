@@ -27,7 +27,7 @@ jobs:
           path: ${{ github.workspace }}/artifact.tar
           token: ${{ secrets.TOKEN_FOR_API }}
     outputs:
-      status_url: "${{steps.test.outputs.status_url)}}"
+      status_url: "${{steps.test.outputs.status_url }}"
       test: "${{steps.test.outputs.test)}}"
   check-deployment:
     runs-on: ubuntu-latest
