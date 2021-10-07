@@ -11,7 +11,8 @@ jobs:
   checkout-and-deployment:
     runs-on: ubuntu-latest
     outputs:
-      status_url: "test"
+      status_url: ${{steps.artifact_upload.outputs.status_url}}
+      test: ${{steps.artifact_upload.outputs.test}}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,7 +22,7 @@ jobs:
         uses: paper-spa/pages-jekyll@v4.0.0
       - name: archive build output
         run: tar --directory _site/ -c -v -f artifact.tar .
-      - name: artifact-upload
+      - name: artifact_upload
         uses: paper-spa/upload-artifact@main
         with:
           name: artifact
@@ -32,6 +33,6 @@ jobs:
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: echo "${{needs.checkout-and-deployment.outputs.status_url}}"
+        run: echo "${{needs.checkout-and-deployment.outputs.status_url}} + ${{needs.checkout-and-deployment.outputs.test}}"
 
 
