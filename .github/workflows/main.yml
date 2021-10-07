@@ -27,13 +27,13 @@ jobs:
           path: ${{ github.workspace }}/artifact.tar
           token: ${{ secrets.TOKEN_FOR_API }}
     outputs:
-      status_url: "${{steps.test.outputs.status_url }}"
-      test: "${{steps.test.outputs.test)}}"
+      status_url: "${{ steps.test.outputs.status_url }}"
+      test: "${{ steps.test.outputs.test }}"
   check-deployment:
     runs-on: ubuntu-latest
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: echo "${{needs.checkout-and-deployment.outputs.status_url}} + ${{join(needs.checkout-and-deployment.outputs.*, ' ')}}"
+        run: echo "${{ needs.checkout-and-deployment.outputs.status_url }} + ${{join(needs.checkout-and-deployment.outputs.*, ' ')}}"
 
 
