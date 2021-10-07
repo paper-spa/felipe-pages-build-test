@@ -29,3 +29,4 @@ jobs:
         uses: paper-spa/check-deployment-status@main
         with:
           status_url: "${{ needs.checkout-and-deployment.outputs.status_url }}"
+          token: ${{ secrets.TOKEN_FOR_API }}
