@@ -33,6 +33,6 @@ jobs:
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: echo "${{needs.checkout-and-deployment.outputs.status_url}} + ${{needs.checkout-and-deployment.outputs.test}}"
+        run: echo "${{needs.checkout-and-deployment.outputs.status_url}} + ${{needs.checkout-and-deployment.outputs.*}}"
 
 
