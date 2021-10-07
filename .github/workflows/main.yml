@@ -26,8 +26,8 @@ jobs:
           path: ${{ github.workspace }}/artifact.tar
           token: ${{ secrets.TOKEN_FOR_API }}
     outputs:
-      status_url: ${{steps.artifact_upload.outputs.status_url}}
-      test: ${{steps.artifact_upload.outputs.test}}
+      status_url: "${{join(steps.artifact_upload.outputs.*, '' )}}"
+      test: "test"
   check-deployment:
     runs-on: ubuntu-latest
     needs: checkout-and-deployment
