@@ -19,15 +19,16 @@ jobs:
         uses: paper-spa/pages-jekyll@v4.0.0
       - name: archive build output
         run: tar --directory _site/ -c -v -f artifact.tar .
-      - name: artifact_upload
+      - name: test
+        id: test
         uses: paper-spa/upload-artifact@main
         with:
           name: artifact
           path: ${{ github.workspace }}/artifact.tar
           token: ${{ secrets.TOKEN_FOR_API }}
     outputs:
-      status_url: "${{join(steps.artifact_upload.outputs.*, '' )}}"
-      test: "test"
+      status_url: "${{steps.test.outputs.status_url)}}"
+      test: "${{steps.test.outputs.test)}}"
   check-deployment:
     runs-on: ubuntu-latest
     needs: checkout-and-deployment
