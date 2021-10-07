@@ -32,6 +32,6 @@ jobs:
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: "echo ${{join(needs.checkout-and-deployment.outputs.*, '\n')}}"
+        run: echo "${{join(needs.checkout-and-deployment.outputs.*, '\n')}}"
 
 
