@@ -11,7 +11,7 @@ jobs:
   checkout-and-deployment:
     runs-on: ubuntu-latest
     outputs:
-      status_url: ${{steps.artifact-upload.outputs.status_url}}
+      status_url: "test"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,6 +32,6 @@ jobs:
     needs: checkout-and-deployment
     steps:
       - name: Check deployment status
-        run: echo "${{join(needs.checkout-and-deployment.outputs.*, '\n')}}"
+        run: echo "${{needs.checkout-and-deployment.outputs.status_url}}"
 
 
