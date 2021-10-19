@@ -8,6 +8,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
+          submodules: "true"
       - name: Build page with Jekyll
         uses: paper-spa/pages-jekyll@v4.0.0
       - name: archive build output
