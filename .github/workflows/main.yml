@@ -1,5 +1,8 @@
 name: pages build and deployment
 on: push
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 jobs:
   checkout-and-deployment:
     runs-on: ubuntu-latest
