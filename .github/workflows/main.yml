@@ -1,7 +1,7 @@
 name: pages build and deployment
 on: push
 concurrency:
-  group: ${{ github.head_ref }}
+  group: main
   cancel-in-progress: true
 jobs:
   checkout-and-deployment:
