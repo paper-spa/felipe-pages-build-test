@@ -1,3 +1,3 @@
-# felipe-pages-build-test!
+# felipe-pages-build-tests!
 TEST
 test
